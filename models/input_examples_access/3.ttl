@@ -1,0 +1,418 @@
+@base <http://www.vstu.ru/poas/code> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# text: pointerObject- объект класса PointerObject с полем catPointer типа указателя на указатель объекта класса Cat. Получите доступ к полю name класса Cat содержащегося в этом указателе на указатель класса Cat
+# input: Cat{name:std::string, age:int} Cat{name:std::string, age:int} PointerObject{catPointer: **Cat, dogPointer: **Dog} variables: pointerObject:PointerObject target:name
+
+# --------- Классы (в задаче) ---------
+
+<#Cat>
+    a <#Item> ;
+    <#item_type> <#Class> ;
+    <#operand_type> <#ClassOperand> ;
+    <#name> "Cat"^^xsd:string ;
+    <#reachable_from> <#Cat> ;
+    <#is_a> <#Class_Cat> ;
+    <#primary_is_a> <#Class_Cat> ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "Cat"^^xsd:string ;
+    <#operand_id> "0"^^xsd:integer .
+
+<#Dog>
+    a <#Item> ;
+    <#item_type> <#Class> ;
+    <#operand_type> <#ClassOperand> ;
+    <#name> "Dog"^^xsd:string ;
+    <#reachable_from> <#Dog> ;
+    <#is_a> <#Class_Dog> ;
+    <#primary_is_a> <#Class_Dog> ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "Dog"^^xsd:string ;
+    <#operand_id> "1"^^xsd:integer .
+
+<#PointerObject>
+    a <#Item> ;
+    <#item_type> <#Class> ;
+    <#operand_type> <#ClassOperand> ;
+    <#name> "PointerObject"^^xsd:string ;
+    <#reachable_from> <#PointerObject> ;
+    <#is_a> <#Class_PointerObject> ;
+    <#primary_is_a> <#Class_PointerObject> ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "PointerObject"^^xsd:string ;
+    <#operand_id> "2"^^xsd:integer .
+
+# -------- Объекты --------
+
+<#pointerObject>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#PointerObject> ;
+    <#contains> <#pointerObject_catPointer> ;
+    <#contains> <#pointerObject_dogPointer> ;
+    <#reachable_from> <#pointerObject> ;
+    <#is_a> <#variable_pointerObject> ;
+    <#primary_is_a> <#variable_pointerObject> ;
+    <#has> <#field_pointerObject_catPointer> ;
+    <#has> <#field_pointerObject_dogPointer> ;
+    <#name> "pointerObject"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "pointerObject"^^xsd:string ;
+    <#operand_id> "3"^^xsd:integer ;
+    <#next> <#field_a_b> ;
+    <#var...> "currentItem"^^xsd:string .
+
+<#pointerObject_catPointer>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#pointerObject_catPointer_catPointer> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_catPointer> ;
+    <#is_a> <#field_pointerObject_catPointer> ;
+    <#primary_is_a> <#field_pointerObject_catPointer> ;
+    <#has> <#point_to_point_to_cat> ;
+    <#linked_with> <#point_to_point_to_cat> ;
+    <#name> "catPointer"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "catPointer"^^xsd:string ;
+    <#operand_id> "4"^^xsd:integer ;
+    <#next> <#point_to_point_to_cat> .
+
+<#pointerObject_catPointer_catPointer>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#pointerObject_catPointer_catPointer_cat> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer> ;
+    <#is_a> <#point_to_point_to_cat> ;
+    <#primary_is_a> <#point_to_point_to_cat> ;
+    <#has> <#point_to_cat> ;
+    <#has> <#point_to_cat_name> ;
+    <#has> <#point_to_cat_age> ;
+    <#linked_with> <#point_to_cat> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> ""^^xsd:string ;
+    <#operand_id> "5"^^xsd:integer ;
+    <#next> <#point_to_cat_name> .
+
+<#pointerObject_catPointer_catPointer_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#pointerObject_catPointer_catPointer_catName> ;
+    <#contains> <#pointerObject_catPointer_catPointer_catAge> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer_cat> ;
+    <#is_a> <#point_to_cat> ;
+    <#primary_is_a> <#point_to_cat> ;
+    <#has> <#field_pointerObject_catPointer_catPointer_catName> ;
+    <#has> <#field_pointerObject_catPointer_catPointer_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> ""^^xsd:string ;
+    <#operand_id> "6"^^xsd:integer ;
+    <#next> <#field_pointerObject_catPointer_catPointer_catName> .
+
+<#pointerObject_catPointer_catPointer_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer_cat> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer_catName> ;
+    <#is_a> <#point_to_cat_name> ;
+    <#is_a> <#field_pointerObject_catPointer_catPointer_catName> ;
+    <#primary_is_a> <#field_pointerObject_catPointer_catPointer_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "name"^^xsd:string ;
+    <#operand_id> "7"^^xsd:integer ;
+    <#var...> "targetItem"^^xsd:string .
+
+<#pointerObject_catPointer_catPointer_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer_cat> ;
+    <#reachable_from> <#pointerObject_catPointer_catPointer_catAge> ;
+    <#is_a> <#point_to_cat_age> ;
+    <#is_a> <#field_pointerObject_catPointer_catPointer_catAge> ;
+    <#primary_is_a> <#field_pointerObject_catPointer_catPointer_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "age"^^xsd:string ;
+    <#operand_id> "8"^^xsd:integer .
+
+<#pointerObject_dogPointer>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#pointerObject_dogPointer_dogPointer> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_dogPointer> ;
+    <#is_a> <#field_pointerObject_dogPointer> ;
+    <#primary_is_a> <#field_pointerObject_dogPointer> ;
+    <#has> <#point_to_point_to_dog> ;
+    <#linked_with> <#point_to_point_to_dog> ;
+    <#name> "dogPointer"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "dogPointer"^^xsd:string ;
+    <#operand_id> "9"^^xsd:integer .
+
+<#pointerObject_dogPointer_dogPointer>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#pointerObject_dogPointer_dogPointer_v> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer> ;
+    <#is_a> <#point_to_point_to_dog> ;
+    <#primary_is_a> <#point_to_point_to_dog> ;
+    <#has> <#point_to_dog> ;
+    <#has> <#point_to_dog_name> ;
+    <#has> <#point_to_dog_age> ;
+    <#linked_with> <#point_to_dog> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> ""^^xsd:string ;
+    <#operand_id> "10"^^xsd:integer .
+
+<#pointerObject_dogPointer_dogPointer_dog>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#pointerObject_dogPointer_dogPointer_dogName> ;
+    <#contains> <#pointerObject_dogPointer_dogPointer_dogAge> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer_dog> ;
+    <#is_a> <#point_to_dog> ;
+    <#primary_is_a> <#point_to_dog> ;
+    <#has> <#field_pointerObject_dogPointer_dogPointer_dogName> ;
+    <#has> <#field_pointerObject_dogPointer_dogPointer_dogAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> ""^^xsd:string ;
+    <#operand_id> "11"^^xsd:integer .
+
+<#pointerObject_dogPointer_dogPointer_dogName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer_dog> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer_dogName> ;
+    <#is_a> <#point_to_dog_name> ;
+    <#is_a> <#field_pointerObject_dogPointer_dogPointer_dogName> ;
+    <#primary_is_a> <#field_pointerObject_dogPointer_dogPointer_dogName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "name"^^xsd:string ;
+    <#operand_id> "12"^^xsd:integer .
+
+<#pointerObject_dogPointer_dogPointer_dogAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#reachable_from> <#pointerObject> ;
+    <#reachable_from> <#pointerObject_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer_dog> ;
+    <#reachable_from> <#pointerObject_dogPointer_dogPointer_dogAge> ;
+    <#is_a> <#point_to_dog_age> ;
+    <#is_a> <#field_pointerObject_dogPointer_dogPointer_dogAge> ;
+    <#primary_is_a> <#field_pointerObject_dogPointer_dogPointer_dogAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "age"^^xsd:string ;
+    <#operand_id> "13"^^xsd:integer .
+
+
+# ------- Отношения принадлежности ----------
+
+<#point_to_point_to_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#pointerObject_catPointer> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_point_to_dog>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#pointerObject_dogPointer> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#pointerObject_catPointer_catPointer> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_dog>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#pointerObject_dogPointer_dogPointer> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_cat_age>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#pointerObject_catPointer_catPointer> ;
+    <#text> "age"^^xsd:string .
+
+<#point_to_cat_name>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#pointerObject_catPointer_catPointer> ;
+    <#text> "name"^^xsd:string .
+
+<#point_to_dog_name>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#pointerObject_dogPointer_dogPointer> ;
+    <#text> "name"^^xsd:string .
+
+<#point_to_dog_age>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#pointerObject_dogPointer_dogPointer> ;
+    <#text> "age"^^xsd:string .
+
+<#field_pointerObject_catPointer> 
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#pointerObject> ;
+    <#text> "catPointer"^^xsd:string .
+
+<#field_pointerObject_dogPointer> 
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#pointerObject> ;
+    <#text> "dogPointer"^^xsd:string .
+
+<#field_pointerObject_catPointer_catPointer_catAge> 
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#pointerObject_catPointer_catPointer_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_pointerObject_catPointer_catPointer_catName> 
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#pointerObject_catPointer_catPointer_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_pointerObject_dogPointer_dogPointer_dogAge> 
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#pointerObject_dogPointer_dogPointer_dog> ;
+    <#text> "age"^^xsd:string .
+
+<#field_pointerObject_dogPointer_dogPointer_dogName> 
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#pointerObject_dogPointer_dogPointer_dog> ;
+    <#text> "name"^^xsd:string .
+
+<#variable_pointerObject>
+    a <#Connection> ;
+    <#connection_type> <#Variable> ;
+    <#text> "pointerObject"^^xsd:string .
+
+<#Class_Cat>
+    a <#Connection> ;
+    <#connection_type> <#ClassConnection> ;
+    <#text> "Cat"^^xsd:string .
+
+<#Class_Dog>
+    a <#Connection> ;
+    <#connection_type> <#ClassConnection> ;
+    <#text> "Dog"^^xsd:string .
+
+<#Class_PointerObject>
+    a <#Connection> ;
+    <#connection_type> <#ClassConnection> ;
+    <#text> "PointerObject"^^xsd:string .
+
+# -------- Входные данные --------------
+
+<#symbol>
+    a <#Element> ;
+    <#operator> <#arrow> ;
+    <#operand> <#item_name_pointerObject> ;
+    <#var...> "symbol"^^xsd:string .
+
+<#item_name_pointerObject>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#variable_pointerObject> ;
+    <#text> "pointerObject"^^xsd:string ;
+    <#operand_id> "14"^^xsd:integer .
+
+<#item_name_name>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#field_pointerObject_catPointer_catPointer_catName> ;
+    <#linked_with> <#field_pointerObject_dogPointer_dogPointer_dogName> ;
+    <#linked_with> <#point_to_cat_name> ;
+    <#linked_with> <#point_to_dog_name> ;
+    <#text> "name"^^xsd:string ;
+    <#operand_id> "15"^^xsd:integer .
+
+<#item_name_age>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#field_pointerObject_catPointer_catPointer_catAge> ;
+    <#linked_with> <#field_pointerObject_dogPointer_dogPointer_dogAge> ;
+    <#linked_with> <#point_to_cat_age> ;
+    <#linked_with> <#point_to_dog_age> ;
+    <#text> "age"^^xsd:string ;
+    <#operand_id> "16"^^xsd:integer .
+
+<#item_name_catPointer>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#field_pointerObject_catPointer> ;
+    <#text> "catPointer"^^xsd:string ;
+    <#operand_id> "17"^^xsd:integer .
+
+<#item_name_dogPointer>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#field_pointerObject_dogPointer> ;
+    <#text> "dogPointer"^^xsd:string ;
+    <#operand_id> "18"^^xsd:integer .
+
+<#item_name_Cat>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#Class_Cat> ;
+    <#text> "Cat"^^xsd:string ;
+    <#operand_id> "19"^^xsd:integer .
+
+<#item_name_Dog>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#Class_Dog> ;
+    <#text> "Dog"^^xsd:string ;
+    <#operand_id> "20"^^xsd:integer .

@@ -1,0 +1,2729 @@
+@base <http://www.vstu.ru/poas/code> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+# objectMatrix- двумерный массив указателей на объекты класса Cat размерностью 2x3. Получите доступ к полю name объекта содержащегося по указателю в objectMatrix с индексами [1][0][1]
+# Cat {name: string, age: int} переменные: objextMatrix : Cat*[2][3][3]
+
+# --------- Классы (в задаче) ---------
+
+<#Cat>
+    a <#Item> ;
+    <#item_type> <#Class> ;
+    <#operand_type> <#ClassOperand> ;
+    <#name> "Cat"^^xsd:string ;
+    <#reachable_from> <#A> ;
+    <#is_a> <#Class_Cat> ;
+    <#primary_is_a> <#Class_Cat> ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "Cat"^^xsd:string ;
+    <#operand_id> "0"^^xsd:integer .
+
+# -------- Объекты --------
+
+<#objectMatrix>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0> ;
+    <#contains> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#is_a> <#variable_objectMatrix> ;
+    <#primary_is_a> <#variable_objectMatrix> ;
+    <#has> <#arrayDimension_0> ;
+    <#has> <#arrayDimension_1> ;
+    <#has> <#point_to_objectMatrix_0> ;
+    <#linked_with> <#point_to_objectMatrix_0> ;
+    <#name> "objectMatrix"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix"^^xsd:string ;
+    <#operand_id> "1"^^xsd:integer ;
+    <#var...> "currentItem"^^xsd:string ;
+    <#next> <#arrayDimension_1> .
+
+<#objectMatrix_0>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_0> ;
+    <#contains> <#objectMatrix_0_1> ;
+    <#contains> <#objectMatrix_0_2> ;
+    <#contained_in> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#is_a> <#arrayDimension_0> ;
+    <#is_a> <#point_to_objectMatrix_0> ;
+    <#primary_is_a> <#arrayDimension_0> ;
+    <#has> <#arrayDimension_0_0> ;
+    <#has> <#arrayDimension_0_1> ;
+    <#has> <#arrayDimension_0_2> ;
+    <#has> <#point_to_objectMatrix_0_0> ;
+    <#linked_with> <#point_to_objectMatrix_0_0> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0]"^^xsd:string ;
+    <#operand_id> "2"^^xsd:integer .
+
+<#objectMatrix_1>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_0> ;
+    <#contains> <#objectMatrix_1_1> ;
+    <#contains> <#objectMatrix_1_2> ;
+    <#contained_in> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#is_a> <#arrayDimension_1> ;
+    <#is_a> <#point_to_objectMatrix_1> ;
+    <#primary_is_a> <#arrayDimension_1> ;
+    <#has> <#arrayDimension_1_0> ;
+    <#has> <#arrayDimension_1_1> ;
+    <#has> <#arrayDimension_1_2> ;
+    <#has> <#point_to_objectMatrix_1_0> ;
+    <#linked_with> <#point_to_objectMatrix_1_0> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1]"^^xsd:string ;
+    <#operand_id> "3"^^xsd:integer ;
+    <#next> <#arrayDimension_1_0> .
+
+<#objectMatrix_0_0>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_0_0> ;
+    <#contains> <#objectMatrix_0_0_1> ;
+    <#contains> <#objectMatrix_0_0_2> ;
+    <#contained_in> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#is_a> <#arrayDimension_0_0> ;
+    <#is_a> <#point_to_objectMatrix_0_0> ;
+    <#primary_is_a> <#arrayDimension_0_0> ;
+    <#has> <#arrayItem_0_0_0> ;
+    <#has> <#arrayItem_0_0_1> ;
+    <#has> <#arrayItem_0_0_2> ;
+    <#has> <#point_to_objectMatrix_0_0_0> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_0> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0]"^^xsd:string ;
+    <#operand_id> "4"^^xsd:integer .
+
+<#objectMatrix_0_1>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_1_0> ;
+    <#contains> <#objectMatrix_0_1_1> ;
+    <#contains> <#objectMatrix_0_1_2> ;
+    <#contained_in> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#is_a> <#arrayDimension_0_1> ;
+    <#is_a> <#point_to_objectMatrix_0_1> ;
+    <#primary_is_a> <#arrayDimension_0_1> ;
+    <#has> <#arrayItem_0_1_0> ;
+    <#has> <#arrayItem_0_1_1> ;
+    <#has> <#arrayItem_0_1_2> ;
+    <#has> <#point_to_objectMatrix_0_1_0> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_0> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1]"^^xsd:string ;
+    <#operand_id> "5"^^xsd:integer .
+
+<#objectMatrix_0_2>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_2_0> ;
+    <#contains> <#objectMatrix_0_2_1> ;
+    <#contains> <#objectMatrix_0_2_2> ;
+    <#contained_in> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#is_a> <#arrayDimension_0_2> ;
+    <#is_a> <#point_to_objectMatrix_0_2> ;
+    <#primary_is_a> <#arrayDimension_0_2> ;
+    <#has> <#arrayItem_0_2_0> ;
+    <#has> <#arrayItem_0_2_1> ;
+    <#has> <#arrayItem_0_2_2> ;
+    <#has> <#point_to_objectMatrix_0_2_0> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_0> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2]"^^xsd:string ;
+    <#operand_id> "6"^^xsd:integer .
+
+<#objectMatrix_1_0>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_0_0> ;
+    <#contains> <#objectMatrix_1_0_1> ;
+    <#contains> <#objectMatrix_1_0_2> ;
+    <#contained_in> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#is_a> <#arrayDimension_1_0> ;
+    <#is_a> <#point_to_objectMatrix_1_0> ;
+    <#primary_is_a> <#arrayDimension_1_0> ;
+    <#has> <#arrayItem_1_0_0> ;
+    <#has> <#arrayItem_1_0_1> ;
+    <#has> <#arrayItem_1_0_2> ;
+    <#has> <#point_to_objectMatrix_1_0_0> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_0> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0]"^^xsd:string ;
+    <#operand_id> "7"^^xsd:integer ;
+    <#next> <#arrayItem_1_0_1> .
+
+<#objectMatrix_1_1>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_1_0> ;
+    <#contains> <#objectMatrix_1_1_1> ;
+    <#contains> <#objectMatrix_1_1_2> ;
+    <#contained_in> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#is_a> <#arrayDimension_1_1> ;
+    <#is_a> <#point_to_objectMatrix_1_1> ;
+    <#primary_is_a> <#arrayDimension_1_1> ;
+    <#has> <#arrayItem_1_1_0> ;
+    <#has> <#arrayItem_1_1_1> ;
+    <#has> <#arrayItem_1_1_2> ;
+    <#has> <#point_to_objectMatrix_1_1_0> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_0> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1]"^^xsd:string ;
+    <#operand_id> "8"^^xsd:integer .
+
+<#objectMatrix_1_2>
+    a <#Item> ;
+    <#item_type> <#Array> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_2_0> ;
+    <#contains> <#objectMatrix_1_2_1> ;
+    <#contains> <#objectMatrix_1_2_2> ;
+    <#contained_in> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#is_a> <#arrayDimension_1_2> ;
+    <#is_a> <#point_to_objectMatrix_1_2> ;
+    <#primary_is_a> <#arrayDimension_1_2> ;
+    <#has> <#arrayItem_1_2_0> ;
+    <#has> <#arrayItem_1_2_1> ;
+    <#has> <#arrayItem_1_2_2> ;
+    <#has> <#point_to_objectMatrix_1_2_0> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_0> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2]"^^xsd:string ;
+    <#operand_id> "9"^^xsd:integer .
+
+<#objectMatrix_0_0_0>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_0_0_cat> ;
+    <#contained_in> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0> ;
+    <#is_a> <#arrayItem_0_0_0> ;
+    <#is_a> <#point_to_objectMatrix_0_0_0> ;
+    <#primary_is_a> <#arrayItem_0_0_0> ;
+    <#has> <#point_to_objectMatrix_0_0_0_cat> ;
+    <#has> <#point_to_objectMatrix_0_0_0_catName> ;
+    <#has> <#point_to_objectMatrix_0_0_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_0_cat> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][0]"^^xsd:string ;
+    <#operand_id> "10"^^xsd:integer .
+
+<#objectMatrix_0_0_1>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_0_1_cat> ;
+    <#contained_in> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_1> ;
+    <#is_a> <#arrayItem_0_0_1> ;
+    <#is_a> <#point_to_objectMatrix_0_0_1> ;
+    <#primary_is_a> <#arrayItem_0_0_1> ;
+    <#has> <#point_to_objectMatrix_0_0_1_cat> ;
+    <#has> <#point_to_objectMatrix_0_0_1_catName> ;
+    <#has> <#point_to_objectMatrix_0_0_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_1_cat> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][1]"^^xsd:string ;
+    <#operand_id> "11"^^xsd:integer .
+
+<#objectMatrix_0_0_2>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_0_2_cat> ;
+    <#contained_in> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_2> ;
+    <#is_a> <#arrayItem_0_0_2> ;
+    <#is_a> <#point_to_objectMatrix_0_0_2> ;
+    <#primary_is_a> <#arrayItem_0_0_2> ;
+    <#has> <#point_to_objectMatrix_0_0_2_cat> ;
+    <#has> <#point_to_objectMatrix_0_0_2_catName> ;
+    <#has> <#point_to_objectMatrix_0_0_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_2_cat> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][2]"^^xsd:string ;
+    <#operand_id> "12"^^xsd:integer .
+
+<#objectMatrix_0_1_0>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_1_0_cat> ;
+    <#contained_in> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_0> ;
+    <#is_a> <#arrayItem_0_1_0> ;
+    <#is_a> <#point_to_objectMatrix_0_1_0> ;
+    <#primary_is_a> <#arrayItem_0_1_0> ;
+    <#has> <#point_to_objectMatrix_0_1_0_cat> ;
+    <#has> <#point_to_objectMatrix_0_1_0_catName> ;
+    <#has> <#point_to_objectMatrix_0_1_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_0_cat> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][0]"^^xsd:string ;
+    <#operand_id> "13"^^xsd:integer .
+
+<#objectMatrix_0_1_1>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_1_1_cat> ;
+    <#contained_in> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1> ;
+    <#is_a> <#arrayItem_0_1_1> ;
+    <#is_a> <#point_to_objectMatrix_0_1_1> ;
+    <#primary_is_a> <#arrayItem_0_1_1> ;
+    <#has> <#point_to_objectMatrix_0_1_1_cat> ;
+    <#has> <#point_to_objectMatrix_0_1_1_catName> ;
+    <#has> <#point_to_objectMatrix_0_1_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_1_cat> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][1]"^^xsd:string ;
+    <#operand_id> "14"^^xsd:integer .
+
+<#objectMatrix_0_1_2>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_1_2_cat> ;
+    <#contained_in> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_2> ;
+    <#is_a> <#arrayItem_0_1_2> ;
+    <#is_a> <#point_to_objectMatrix_0_1_2> ;
+    <#primary_is_a> <#arrayItem_0_1_2> ;
+    <#has> <#point_to_objectMatrix_0_1_2_cat> ;
+    <#has> <#point_to_objectMatrix_0_1_2_catName> ;
+    <#has> <#point_to_objectMatrix_0_1_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_2_cat> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][2]"^^xsd:string ;
+    <#operand_id> "15"^^xsd:integer .
+
+<#objectMatrix_0_2_0>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_2_0_cat> ;
+    <#contained_in> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_0> ;
+    <#is_a> <#arrayItem_0_2_0> ;
+    <#is_a> <#point_to_objectMatrix_0_2_0> ;
+    <#primary_is_a> <#arrayItem_0_2_0> ;
+    <#has> <#point_to_objectMatrix_0_2_0_cat> ;
+    <#has> <#point_to_objectMatrix_0_2_0_catName> ;
+    <#has> <#point_to_objectMatrix_0_2_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_0_cat> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][0]"^^xsd:string ;
+    <#operand_id> "16"^^xsd:integer .
+
+<#objectMatrix_0_2_1>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_2_1_cat> ;
+    <#contained_in> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_1> ;
+    <#is_a> <#arrayItem_0_2_1> ;
+    <#is_a> <#point_to_objectMatrix_0_2_1> ;
+    <#primary_is_a> <#arrayItem_0_2_1> ;
+    <#has> <#point_to_objectMatrix_0_2_1_cat> ;
+    <#has> <#point_to_objectMatrix_0_2_1_catName> ;
+    <#has> <#point_to_objectMatrix_0_2_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_1_cat> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][1]"^^xsd:string ;
+    <#operand_id> "17"^^xsd:integer .
+
+<#objectMatrix_0_2_2>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_0_2_2_cat> ;
+    <#contained_in> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2> ;
+    <#is_a> <#arrayItem_0_2_2> ;
+    <#is_a> <#point_to_objectMatrix_0_2_2> ;
+    <#primary_is_a> <#arrayItem_0_2_2> ;
+    <#has> <#point_to_objectMatrix_0_2_2_cat> ;
+    <#has> <#point_to_objectMatrix_0_2_2_catName> ;
+    <#has> <#point_to_objectMatrix_0_2_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_2_cat> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][2]"^^xsd:string ;
+    <#operand_id> "18"^^xsd:integer .
+
+<#objectMatrix_1_0_0>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_0_0_cat> ;
+    <#contained_in> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0> ;
+    <#is_a> <#arrayItem_1_0_0> ;
+    <#is_a> <#point_to_objectMatrix_1_0_0> ;
+    <#primary_is_a> <#arrayItem_1_0_0> ;
+    <#has> <#point_to_objectMatrix_1_0_0_cat> ;
+    <#has> <#point_to_objectMatrix_1_0_0_catName> ;
+    <#has> <#point_to_objectMatrix_1_0_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_0_cat> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][0]"^^xsd:string ;
+    <#operand_id> "19"^^xsd:integer .
+
+<#objectMatrix_1_0_1>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_0_1_cat> ;
+    <#contained_in> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_1_0_1> ;
+    <#is_a> <#arrayItem_1_0_1> ;
+    <#is_a> <#point_to_objectMatrix_1_0_1> ;
+    <#primary_is_a> <#arrayItem_1_0_1> ;
+    <#has> <#point_to_objectMatrix_1_0_1_cat> ;
+    <#has> <#point_to_objectMatrix_1_0_1_catName> ;
+    <#has> <#point_to_objectMatrix_1_0_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_1_cat> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][1]"^^xsd:string ;
+    <#operand_id> "20"^^xsd:integer ;
+    <#next> <#point_to_objectMatrix_1_0_1_catName> .
+
+<#objectMatrix_1_0_2>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_0_2_cat> ;
+    <#contained_in> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_2> ;
+    <#is_a> <#arrayItem_1_0_2> ;
+    <#is_a> <#point_to_objectMatrix_1_0_2> ;
+    <#primary_is_a> <#arrayItem_1_0_2> ;
+    <#has> <#point_to_objectMatrix_1_0_2_cat> ;
+    <#has> <#point_to_objectMatrix_1_0_2_catName> ;
+    <#has> <#point_to_objectMatrix_1_0_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_2_cat> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][2]"^^xsd:string ;
+    <#operand_id> "21"^^xsd:integer .
+
+<#objectMatrix_1_1_0>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_1_0_cat> ;
+    <#contained_in> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_0> ;
+    <#is_a> <#arrayItem_1_1_0> ;
+    <#is_a> <#point_to_objectMatrix_1_1_0> ;
+    <#primary_is_a> <#arrayItem_1_1_0> ;
+    <#has> <#point_to_objectMatrix_1_1_0_cat> ;
+    <#has> <#point_to_objectMatrix_1_1_0_catName> ;
+    <#has> <#point_to_objectMatrix_1_1_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_0_cat> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][0]"^^xsd:string ;
+    <#operand_id> "22"^^xsd:integer .
+
+<#objectMatrix_1_1_1>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_1_1_cat> ;
+    <#contained_in> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1> ;
+    <#is_a> <#arrayItem_1_1_1> ;
+    <#is_a> <#point_to_objectMatrix_1_1_1> ;
+    <#primary_is_a> <#arrayItem_1_1_1> ;
+    <#has> <#point_to_objectMatrix_1_1_1_cat> ;
+    <#has> <#point_to_objectMatrix_1_1_1_catName> ;
+    <#has> <#point_to_objectMatrix_1_1_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_1_cat> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][1]"^^xsd:string ;
+    <#operand_id> "23"^^xsd:integer .
+
+<#objectMatrix_1_1_2>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_1_2_cat> ;
+    <#contained_in> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_2> ;
+    <#is_a> <#arrayItem_1_1_2> ;
+    <#is_a> <#point_to_objectMatrix_1_1_2> ;
+    <#primary_is_a> <#arrayItem_1_1_2> ;
+    <#has> <#point_to_objectMatrix_1_1_2_cat> ;
+    <#has> <#point_to_objectMatrix_1_1_2_catName> ;
+    <#has> <#point_to_objectMatrix_1_1_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_2_cat> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][2]"^^xsd:string ;
+    <#operand_id> "24"^^xsd:integer .
+
+<#objectMatrix_1_2_0>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_2_0_cat> ;
+    <#contained_in> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_0> ;
+    <#is_a> <#arrayItem_1_2_0> ;
+    <#is_a> <#point_to_objectMatrix_1_2_0> ;
+    <#primary_is_a> <#arrayItem_1_2_0> ;
+    <#has> <#point_to_objectMatrix_1_2_0_cat> ;
+    <#has> <#point_to_objectMatrix_1_2_0_catName> ;
+    <#has> <#point_to_objectMatrix_1_2_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_0_cat> ;
+    <#name> "0"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][0]"^^xsd:string ;
+    <#operand_id> "25"^^xsd:integer .
+
+<#objectMatrix_1_2_1>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_2_1_cat> ;
+    <#contained_in> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_1> ;
+    <#is_a> <#arrayItem_1_2_1> ;
+    <#is_a> <#point_to_objectMatrix_1_2_1> ;
+    <#primary_is_a> <#arrayItem_1_2_1> ;
+    <#has> <#point_to_objectMatrix_1_2_1_cat> ;
+    <#has> <#point_to_objectMatrix_1_2_1_catName> ;
+    <#has> <#point_to_objectMatrix_1_2_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_1_cat> ;
+    <#name> "1"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][1]"^^xsd:string ;
+    <#operand_id> "26"^^xsd:integer .
+
+<#objectMatrix_1_2_2>
+    a <#Item> ;
+    <#item_type> <#Pointer> ;
+    <#operand_type> <#PointerOperand> ;
+    <#contains> <#objectMatrix_1_2_2_cat> ;
+    <#contained_in> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2> ;
+    <#is_a> <#arrayItem_1_2_2> ;
+    <#is_a> <#point_to_objectMatrix_1_2_2> ;
+    <#primary_is_a> <#arrayItem_1_2_2> ;
+    <#has> <#point_to_objectMatrix_1_2_2_cat> ;
+    <#has> <#point_to_objectMatrix_1_2_2_catName> ;
+    <#has> <#point_to_objectMatrix_1_2_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_2_cat> ;
+    <#name> "2"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][2]"^^xsd:string ;
+    <#operand_id> "27"^^xsd:integer .
+
+<#objectMatrix_0_0_0_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_0_0_catName> ;
+    <#contains> <#objectMatrix_0_0_0_catAge> ;
+    <#contained_in> <#objectMatrix_0_0_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_0_0_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_0_0_cat> ;
+    <#has> <#field_objectMatrix_0_0_0_catName> ;
+    <#has> <#field_objectMatrix_0_0_0_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][0][0])"^^xsd:string ;
+    <#operand_id> "28"^^xsd:integer .
+
+<#objectMatrix_0_0_1_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_0_1_catName> ;
+    <#contains> <#objectMatrix_0_0_1_catAge> ;
+    <#contained_in> <#objectMatrix_0_0_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_1> ;
+    <#reachable_from> <#objectMatrix_0_0_1_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_0_1_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_0_1_cat> ;
+    <#has> <#field_objectMatrix_0_0_1_catName> ;
+    <#has> <#field_objectMatrix_0_0_1_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][0][1])"^^xsd:string ;
+    <#operand_id> "29"^^xsd:integer .
+
+<#objectMatrix_0_0_2_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_0_2_catName> ;
+    <#contains> <#objectMatrix_0_0_2_catAge> ;
+    <#contained_in> <#objectMatrix_0_0_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_2> ;
+    <#reachable_from> <#objectMatrix_0_0_2_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_0_2_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_0_2_cat> ;
+    <#has> <#field_objectMatrix_0_0_2_catName> ;
+    <#has> <#field_objectMatrix_0_0_2_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][0][2])"^^xsd:string ;
+    <#operand_id> "30"^^xsd:integer .
+
+<#objectMatrix_0_1_0_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_1_0_catName> ;
+    <#contains> <#objectMatrix_0_1_0_catAge> ;
+    <#contained_in> <#objectMatrix_0_1_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_0> ;
+    <#reachable_from> <#objectMatrix_0_1_0_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_1_0_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_1_0_cat> ;
+    <#has> <#field_objectMatrix_0_1_0_catName> ;
+    <#has> <#field_objectMatrix_0_1_0_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][1][0])"^^xsd:string ;
+    <#operand_id> "31"^^xsd:integer .
+
+<#objectMatrix_0_1_1_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_1_1_catName> ;
+    <#contains> <#objectMatrix_0_1_1_catAge> ;
+    <#contained_in> <#objectMatrix_0_1_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_1_1_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_1_1_cat> ;
+    <#has> <#field_objectMatrix_0_1_1_catName> ;
+    <#has> <#field_objectMatrix_0_1_1_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][1][1])"^^xsd:string ;
+    <#operand_id> "32"^^xsd:integer .
+
+<#objectMatrix_0_1_2_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_1_2_catName> ;
+    <#contains> <#objectMatrix_0_1_2_catAge> ;
+    <#contained_in> <#objectMatrix_0_1_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_2> ;
+    <#reachable_from> <#objectMatrix_0_1_2_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_1_2_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_1_2_cat> ;
+    <#has> <#field_objectMatrix_0_1_2_catName> ;
+    <#has> <#field_objectMatrix_0_1_2_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][1][2])"^^xsd:string ;
+    <#operand_id> "33"^^xsd:integer .
+
+<#objectMatrix_0_2_0_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_2_0_catName> ;
+    <#contains> <#objectMatrix_0_2_0_catAge> ;
+    <#contained_in> <#objectMatrix_0_2_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_0> ;
+    <#reachable_from> <#objectMatrix_0_2_0_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_2_0_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_2_0_cat> ;
+    <#has> <#field_objectMatrix_0_2_0_catName> ;
+    <#has> <#field_objectMatrix_0_2_0_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][2][0])"^^xsd:string ;
+    <#operand_id> "34"^^xsd:integer .
+
+<#objectMatrix_0_2_1_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_2_1_catName> ;
+    <#contains> <#objectMatrix_0_2_1_catAge> ;
+    <#contained_in> <#objectMatrix_0_2_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_1> ;
+    <#reachable_from> <#objectMatrix_0_2_1_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_2_1_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_2_1_cat> ;
+    <#has> <#field_objectMatrix_0_2_1_catName> ;
+    <#has> <#field_objectMatrix_0_2_1_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][2][1])"^^xsd:string ;
+    <#operand_id> "35"^^xsd:integer .
+
+<#objectMatrix_0_2_2_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_0_2_2_catName> ;
+    <#contains> <#objectMatrix_0_2_2_catAge> ;
+    <#contained_in> <#objectMatrix_0_2_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2_cat> ;
+    <#is_a> <#point_to_objectMatrix_0_2_2_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_0_2_2_cat> ;
+    <#has> <#field_objectMatrix_0_2_2_catName> ;
+    <#has> <#field_objectMatrix_0_2_2_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[0][2][2])"^^xsd:string ;
+    <#operand_id> "36"^^xsd:integer .
+
+<#objectMatrix_1_0_0_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_0_0_catName> ;
+    <#contains> <#objectMatrix_1_0_0_catAge> ;
+    <#contained_in> <#objectMatrix_1_0_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_0_0_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_0_0_cat> ;
+    <#has> <#field_objectMatrix_1_0_0_catName> ;
+    <#has> <#field_objectMatrix_1_0_0_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][0][0])"^^xsd:string ;
+    <#operand_id> "37"^^xsd:integer .
+
+<#objectMatrix_1_0_1_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_0_1_catName> ;
+    <#contains> <#objectMatrix_1_0_1_catAge> ;
+    <#contained_in> <#objectMatrix_1_0_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_1> ;
+    <#reachable_from> <#objectMatrix_1_0_1_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_0_1_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_0_1_cat> ;
+    <#has> <#field_objectMatrix_1_0_1_catName> ;
+    <#has> <#field_objectMatrix_1_0_1_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][0][1])"^^xsd:string ;
+    <#operand_id> "38"^^xsd:integer ;
+    <#next> <#field_objectMatrix_1_0_1_catName> .
+
+<#objectMatrix_1_0_2_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_0_2_catName> ;
+    <#contains> <#objectMatrix_1_0_2_catAge> ;
+    <#contained_in> <#objectMatrix_1_0_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_2> ;
+    <#reachable_from> <#objectMatrix_1_0_2_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_0_2_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_0_2_cat> ;
+    <#has> <#field_objectMatrix_1_0_2_catName> ;
+    <#has> <#field_objectMatrix_1_0_2_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][0][2])"^^xsd:string ;
+    <#operand_id> "39"^^xsd:integer .
+
+<#objectMatrix_1_1_0_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_1_0_catName> ;
+    <#contains> <#objectMatrix_1_1_0_catAge> ;
+    <#contained_in> <#objectMatrix_1_1_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_0> ;
+    <#reachable_from> <#objectMatrix_1_1_0_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_1_0_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_1_0_cat> ;
+    <#has> <#field_objectMatrix_1_1_0_catName> ;
+    <#has> <#field_objectMatrix_1_1_0_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][1][0])"^^xsd:string ;
+    <#operand_id> "40"^^xsd:integer .
+
+<#objectMatrix_1_1_1_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_1_1_catName> ;
+    <#contains> <#objectMatrix_1_1_1_catAge> ;
+    <#contained_in> <#objectMatrix_1_1_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_1_1_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_1_1_cat> ;
+    <#has> <#field_objectMatrix_1_1_1_catName> ;
+    <#has> <#field_objectMatrix_1_1_1_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][1][1])"^^xsd:string ;
+    <#operand_id> "41"^^xsd:integer .
+
+<#objectMatrix_1_1_2_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_1_2_catName> ;
+    <#contains> <#objectMatrix_1_1_2_catAge> ;
+    <#contained_in> <#objectMatrix_1_1_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_2> ;
+    <#reachable_from> <#objectMatrix_1_1_2_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_1_2_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_1_2_cat> ;
+    <#has> <#field_objectMatrix_1_1_2_catName> ;
+    <#has> <#field_objectMatrix_1_1_2_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][1][2])"^^xsd:string ;
+    <#operand_id> "42"^^xsd:integer .
+
+<#objectMatrix_1_2_0_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_2_0_catName> ;
+    <#contains> <#objectMatrix_1_2_0_catAge> ;
+    <#contained_in> <#objectMatrix_1_2_0> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_0> ;
+    <#reachable_from> <#objectMatrix_1_2_0_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_2_0_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_2_0_cat> ;
+    <#has> <#field_objectMatrix_1_2_0_catName> ;
+    <#has> <#field_objectMatrix_1_2_0_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][2][0])"^^xsd:string ;
+    <#operand_id> "43"^^xsd:integer .
+
+<#objectMatrix_1_2_1_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_2_1_catName> ;
+    <#contains> <#objectMatrix_1_2_1_catAge> ;
+    <#contained_in> <#objectMatrix_1_2_1> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_1> ;
+    <#reachable_from> <#objectMatrix_1_2_1_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_2_1_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_2_1_cat> ;
+    <#has> <#field_objectMatrix_1_2_1_catName> ;
+    <#has> <#field_objectMatrix_1_2_1_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][2][1])"^^xsd:string ;
+    <#operand_id> "44"^^xsd:integer .
+
+<#objectMatrix_1_2_2_cat>
+    a <#Item> ;
+    <#item_type> <#ClassObject> ;
+    <#operand_type> <#ItemOperand> ;
+    <#instance_of> <#Cat> ;
+    <#contains> <#objectMatrix_1_2_2_catName> ;
+    <#contains> <#objectMatrix_1_2_2_catAge> ;
+    <#contained_in> <#objectMatrix_1_2_2> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2_cat> ;
+    <#is_a> <#point_to_objectMatrix_1_2_2_cat> ;
+    <#primary_is_a> <#point_to_objectMatrix_1_2_2_cat> ;
+    <#has> <#field_objectMatrix_1_2_2_catName> ;
+    <#has> <#field_objectMatrix_1_2_2_catAge> ;
+    <#name> ""^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "*(objectMatrix[1][2][2])"^^xsd:string ;
+    <#operand_id> "45"^^xsd:integer .
+
+<#objectMatrix_0_0_0_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_0_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0_cat> ;
+    <#reachable_from> <#objectMatrix_0_0_0_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_0_0_catName> ;
+    <#is_a> <#field_objectMatrix_0_0_0_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_0_0_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][0]->name"^^xsd:string ;
+    <#operand_id> "46"^^xsd:integer .
+
+<#objectMatrix_0_0_0_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_0_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_0_cat> ;
+    <#reachable_from> <#objectMatrix_0_0_0_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_0_0_catAge> ;
+    <#is_a> <#field_objectMatrix_0_0_0_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_0_0_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][0]->age"^^xsd:string ;
+    <#operand_id> "47"^^xsd:integer .
+
+<#objectMatrix_0_0_1_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_0_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_1> ;
+    <#reachable_from> <#objectMatrix_0_0_1_cat> ;
+    <#reachable_from> <#objectMatrix_0_0_1_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_0_1_catName> ;
+    <#is_a> <#field_objectMatrix_0_0_1_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_0_1_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][1]->name"^^xsd:string ;
+    <#operand_id> "48"^^xsd:integer .
+
+<#objectMatrix_0_0_1_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_0_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_1> ;
+    <#reachable_from> <#objectMatrix_0_0_1_cat> ;
+    <#reachable_from> <#objectMatrix_0_0_1_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_0_1_catAge> ;
+    <#is_a> <#field_objectMatrix_0_0_1_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_0_1_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][1]->age"^^xsd:string ;
+    <#operand_id> "49"^^xsd:integer .
+
+<#objectMatrix_0_0_2_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_0_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_2> ;
+    <#reachable_from> <#objectMatrix_0_0_2_cat> ;
+    <#reachable_from> <#objectMatrix_0_0_2_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_0_2_catName> ;
+    <#is_a> <#field_objectMatrix_0_0_2_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_0_2_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][2]->name"^^xsd:string ;
+    <#operand_id> "50"^^xsd:integer .
+
+<#objectMatrix_0_0_2_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_0_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_0> ;
+    <#reachable_from> <#objectMatrix_0_0_2> ;
+    <#reachable_from> <#objectMatrix_0_0_2_cat> ;
+    <#reachable_from> <#objectMatrix_0_0_2_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_0_2_catAge> ;
+    <#is_a> <#field_objectMatrix_0_0_2_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_0_2_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][0][2]->age"^^xsd:string ;
+    <#operand_id> "51"^^xsd:integer .
+
+<#objectMatrix_0_1_0_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_1_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_0> ;
+    <#reachable_from> <#objectMatrix_0_1_0_cat> ;
+    <#reachable_from> <#objectMatrix_0_1_0_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_1_0_catName> ;
+    <#is_a> <#field_objectMatrix_0_1_0_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_1_0_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][0]->name"^^xsd:string ;
+    <#operand_id> "52"^^xsd:integer .
+
+<#objectMatrix_0_1_0_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_1_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_0> ;
+    <#reachable_from> <#objectMatrix_0_1_0_cat> ;
+    <#reachable_from> <#objectMatrix_0_1_0_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_1_0_catAge> ;
+    <#is_a> <#field_objectMatrix_0_1_0_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_1_0_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][0]->age"^^xsd:string ;
+    <#operand_id> "53"^^xsd:integer .
+
+<#objectMatrix_0_1_1_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_1_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1_cat> ;
+    <#reachable_from> <#objectMatrix_0_1_1_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_1_1_catName> ;
+    <#is_a> <#field_objectMatrix_0_1_1_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_1_1_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][1]->name"^^xsd:string ;
+    <#operand_id> "54"^^xsd:integer .
+
+<#objectMatrix_0_1_1_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_1_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1> ;
+    <#reachable_from> <#objectMatrix_0_1_1_cat> ;
+    <#reachable_from> <#objectMatrix_0_1_1_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_1_1_catAge> ;
+    <#is_a> <#field_objectMatrix_0_1_1_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_1_1_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][1]->age"^^xsd:string ;
+    <#operand_id> "55"^^xsd:integer .
+
+<#objectMatrix_0_1_2_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_1_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_2> ;
+    <#reachable_from> <#objectMatrix_0_1_2_cat> ;
+    <#reachable_from> <#objectMatrix_0_1_2_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_1_2_catName> ;
+    <#is_a> <#field_objectMatrix_0_1_2_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_1_2_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][2]->name"^^xsd:string ;
+    <#operand_id> "56"^^xsd:integer .
+
+<#objectMatrix_0_1_2_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_1_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_1> ;
+    <#reachable_from> <#objectMatrix_0_1_2> ;
+    <#reachable_from> <#objectMatrix_0_1_2_cat> ;
+    <#reachable_from> <#objectMatrix_0_1_2_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_1_2_catAge> ;
+    <#is_a> <#field_objectMatrix_0_1_2_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_1_2_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][1][2]->age"^^xsd:string ;
+    <#operand_id> "57"^^xsd:integer .
+
+<#objectMatrix_0_2_0_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_2_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_0> ;
+    <#reachable_from> <#objectMatrix_0_2_0_cat> ;
+    <#reachable_from> <#objectMatrix_0_2_0_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_2_0_catName> ;
+    <#is_a> <#field_objectMatrix_0_2_0_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_2_0_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][0]->name"^^xsd:string ;
+    <#operand_id> "58"^^xsd:integer .
+
+<#objectMatrix_0_2_0_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_2_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_0> ;
+    <#reachable_from> <#objectMatrix_0_2_0_cat> ;
+    <#reachable_from> <#objectMatrix_0_2_0_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_2_0_catAge> ;
+    <#is_a> <#field_objectMatrix_0_2_0_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_2_0_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][0]->age"^^xsd:string ;
+    <#operand_id> "59"^^xsd:integer .
+
+<#objectMatrix_0_2_1_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_2_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_1> ;
+    <#reachable_from> <#objectMatrix_0_2_1_cat> ;
+    <#reachable_from> <#objectMatrix_0_2_1_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_2_1_catName> ;
+    <#is_a> <#field_objectMatrix_0_2_1_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_2_1_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][1]->name"^^xsd:string ;
+    <#operand_id> "60"^^xsd:integer .
+
+<#objectMatrix_0_2_1_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_2_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_1> ;
+    <#reachable_from> <#objectMatrix_0_2_1_cat> ;
+    <#reachable_from> <#objectMatrix_0_2_1_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_2_1_catAge> ;
+    <#is_a> <#field_objectMatrix_0_2_1_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_2_1_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][1]->age"^^xsd:string ;
+    <#operand_id> "61"^^xsd:integer .
+
+<#objectMatrix_0_2_2_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_0_2_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2_cat> ;
+    <#reachable_from> <#objectMatrix_0_2_2_catName> ;
+    <#is_a> <#point_to_objectMatrix_0_2_2_catName> ;
+    <#is_a> <#field_objectMatrix_0_2_2_catName> ;
+    <#primary_is_a> <#field_objectMatrix_0_2_2_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][2]->name"^^xsd:string ;
+    <#operand_id> "62"^^xsd:integer .
+
+<#objectMatrix_0_2_2_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_0_2_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_0> ;
+    <#reachable_from> <#objectMatrix_0_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2> ;
+    <#reachable_from> <#objectMatrix_0_2_2_cat> ;
+    <#reachable_from> <#objectMatrix_0_2_2_catAge> ;
+    <#is_a> <#point_to_objectMatrix_0_2_2_catAge> ;
+    <#is_a> <#field_objectMatrix_0_2_2_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_0_2_2_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[0][2][2]->age"^^xsd:string ;
+    <#operand_id> "63"^^xsd:integer .
+
+<#objectMatrix_1_0_0_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_0_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0_cat> ;
+    <#reachable_from> <#objectMatrix_1_0_0_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_0_0_catName> ;
+    <#is_a> <#field_objectMatrix_1_0_0_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_0_0_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][0]->name"^^xsd:string ;
+    <#operand_id> "64"^^xsd:integer .
+
+<#objectMatrix_1_0_0_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_0_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0> ;
+    <#reachable_from> <#objectMatrix_1_0_0_cat> ;
+    <#reachable_from> <#objectMatrix_1_0_0_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_0_0_catAge> ;
+    <#is_a> <#field_objectMatrix_1_0_0_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_0_0_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][0]->age"^^xsd:string ;
+    <#operand_id> "65"^^xsd:integer .
+
+<#objectMatrix_1_0_1_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_0_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_1> ;
+    <#reachable_from> <#objectMatrix_1_0_1_cat> ;
+    <#reachable_from> <#objectMatrix_1_0_1_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_0_1_catName> ;
+    <#is_a> <#field_objectMatrix_1_0_1_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_0_1_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][1]->name"^^xsd:string ;
+    <#var...> "targetItem"^^xsd:string ;
+    <#operand_id> "66"^^xsd:integer .
+
+<#objectMatrix_1_0_1_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_0_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_1> ;
+    <#reachable_from> <#objectMatrix_1_0_1_cat> ;
+    <#reachable_from> <#objectMatrix_1_0_1_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_0_1_catAge> ;
+    <#is_a> <#field_objectMatrix_1_0_1_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_0_1_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][1]->age"^^xsd:string ;
+    <#operand_id> "67"^^xsd:integer .
+
+<#objectMatrix_1_0_2_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_0_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_2> ;
+    <#reachable_from> <#objectMatrix_1_0_2_cat> ;
+    <#reachable_from> <#objectMatrix_1_0_2_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_0_2_catName> ;
+    <#is_a> <#field_objectMatrix_1_0_2_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_0_2_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][2]->name"^^xsd:string ;
+    <#operand_id> "68"^^xsd:integer .
+
+<#objectMatrix_1_0_2_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_0_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_0> ;
+    <#reachable_from> <#objectMatrix_1_0_2> ;
+    <#reachable_from> <#objectMatrix_1_0_2_cat> ;
+    <#reachable_from> <#objectMatrix_1_0_2_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_0_2_catAge> ;
+    <#is_a> <#field_objectMatrix_1_0_2_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_0_2_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][0][2]->age"^^xsd:string ;
+    <#operand_id> "69"^^xsd:integer .
+
+<#objectMatrix_1_1_0_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_1_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_0> ;
+    <#reachable_from> <#objectMatrix_1_1_0_cat> ;
+    <#reachable_from> <#objectMatrix_1_1_0_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_1_0_catName> ;
+    <#is_a> <#field_objectMatrix_1_1_0_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_1_0_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][0]->name"^^xsd:string ;
+    <#operand_id> "70"^^xsd:integer .
+
+<#objectMatrix_1_1_0_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_1_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_0> ;
+    <#reachable_from> <#objectMatrix_1_1_0_cat> ;
+    <#reachable_from> <#objectMatrix_1_1_0_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_1_0_catAge> ;
+    <#is_a> <#field_objectMatrix_1_1_0_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_1_0_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][0]->age"^^xsd:string ;
+    <#operand_id> "71"^^xsd:integer .
+
+<#objectMatrix_1_1_1_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_1_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1_cat> ;
+    <#reachable_from> <#objectMatrix_1_1_1_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_1_1_catName> ;
+    <#is_a> <#field_objectMatrix_1_1_1_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_1_1_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][1]->name"^^xsd:string ;
+    <#operand_id> "72"^^xsd:integer .
+
+<#objectMatrix_1_1_1_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_1_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_1_cat> ;
+    <#reachable_from> <#objectMatrix_1_1_1_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_1_1_catAge> ;
+    <#is_a> <#field_objectMatrix_1_1_1_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_1_1_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][1]->age"^^xsd:string ;
+    <#operand_id> "73"^^xsd:integer .
+
+<#objectMatrix_1_1_2_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_1_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_2> ;
+    <#reachable_from> <#objectMatrix_1_1_2_cat> ;
+    <#reachable_from> <#objectMatrix_1_1_2_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_1_2_catName> ;
+    <#is_a> <#field_objectMatrix_1_1_2_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_1_2_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][2]->name"^^xsd:string ;
+    <#operand_id> "74"^^xsd:integer .
+
+<#objectMatrix_1_1_2_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_1_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_1> ;
+    <#reachable_from> <#objectMatrix_1_1_2> ;
+    <#reachable_from> <#objectMatrix_1_1_2_cat> ;
+    <#reachable_from> <#objectMatrix_1_1_2_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_1_2_catAge> ;
+    <#is_a> <#field_objectMatrix_1_1_2_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_1_2_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][1][2]->age"^^xsd:string ;
+    <#operand_id> "75"^^xsd:integer .
+
+<#objectMatrix_1_2_0_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_2_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_0> ;
+    <#reachable_from> <#objectMatrix_1_2_0_cat> ;
+    <#reachable_from> <#objectMatrix_1_2_0_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_2_0_catName> ;
+    <#is_a> <#field_objectMatrix_1_2_0_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_2_0_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][0]->name"^^xsd:string ;
+    <#operand_id> "76"^^xsd:integer .
+
+<#objectMatrix_1_2_0_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_2_0_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_0> ;
+    <#reachable_from> <#objectMatrix_1_2_0_cat> ;
+    <#reachable_from> <#objectMatrix_1_2_0_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_2_0_catAge> ;
+    <#is_a> <#field_objectMatrix_1_2_0_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_2_0_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][0]->age"^^xsd:string ;
+    <#operand_id> "77"^^xsd:integer .
+
+<#objectMatrix_1_2_1_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_2_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_1> ;
+    <#reachable_from> <#objectMatrix_1_2_1_cat> ;
+    <#reachable_from> <#objectMatrix_1_2_1_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_2_1_catName> ;
+    <#is_a> <#field_objectMatrix_1_2_1_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_2_1_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][1]->name"^^xsd:string ;
+    <#operand_id> "78"^^xsd:integer .
+
+<#objectMatrix_1_2_1_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_2_1_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_1> ;
+    <#reachable_from> <#objectMatrix_1_2_1_cat> ;
+    <#reachable_from> <#objectMatrix_1_2_1_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_2_1_catAge> ;
+    <#is_a> <#field_objectMatrix_1_2_1_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_2_1_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][1]->age"^^xsd:string ;
+    <#operand_id> "79"^^xsd:integer .
+
+<#objectMatrix_1_2_2_catName>
+    a <#Item> ;
+    <#item_type> <#StringValue> ;
+    <#operand_type> <#ItemOperand> ;
+    <#contained_in> <#objectMatrix_1_2_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2_cat> ;
+    <#reachable_from> <#objectMatrix_1_2_2_catName> ;
+    <#is_a> <#point_to_objectMatrix_1_2_2_catName> ;
+    <#is_a> <#field_objectMatrix_1_2_2_catName> ;
+    <#primary_is_a> <#field_objectMatrix_1_2_2_catName> ;
+    <#name> "name"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][2]->name"^^xsd:string ;
+    <#operand_id> "80"^^xsd:integer .
+
+<#objectMatrix_1_2_2_catAge>
+    a <#Item> ;
+    <#item_type> <#IntegerValue> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#contained_in> <#objectMatrix_1_2_2_cat> ;
+    <#reachable_from> <#objectMatrix> ;
+    <#reachable_from> <#objectMatrix_1> ;
+    <#reachable_from> <#objectMatrix_1_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2> ;
+    <#reachable_from> <#objectMatrix_1_2_2_cat> ;
+    <#reachable_from> <#objectMatrix_1_2_2_catAge> ;
+    <#is_a> <#point_to_objectMatrix_1_2_2_catAge> ;
+    <#is_a> <#field_objectMatrix_1_2_2_catAge> ;
+    <#primary_is_a> <#field_objectMatrix_1_2_2_catAge> ;
+    <#name> "age"^^xsd:string ;
+    <#was_visited_before> "false"^^xsd:boolean ;
+    <#text> "objectMatrix[1][2][2]->age"^^xsd:string ;
+    <#operand_id> "81"^^xsd:integer .
+
+# ------- Отношения принадлежности ----------
+
+<#arrayDimension_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayDimension_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayDimension_0_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix_0> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayDimension_0_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix_0> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayDimension_0_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix_0> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayDimension_1_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix_1> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayDimension_1_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix_1> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayDimension_1_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayDimension> ;
+    <#source> <#objectMatrix_1> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayItem_0_0_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayItem_0_0_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayItem_0_0_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayItem_0_1_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_1> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayItem_0_1_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_1> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayItem_0_1_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_1> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayItem_0_2_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayItem_0_2_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayItem_0_2_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayItem_1_0_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_0> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayItem_1_0_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_0> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayItem_1_0_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_0> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayItem_1_1_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_1> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayItem_1_1_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_1> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayItem_1_1_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_1> ;
+    <#text> "2"^^xsd:string .
+
+<#arrayItem_1_2_0>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_2> ;
+    <#text> "0"^^xsd:string .
+
+<#arrayItem_1_2_1>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_2> ;
+    <#text> "1"^^xsd:string .
+
+<#arrayItem_1_2_2>
+    a <#Connection> ;
+    <#connection_type> <#ArrayItem> ;
+    <#source> <#objectMatrix_1_2> ;
+    <#text> "2"^^xsd:string .
+
+<#point_to_objectMatrix_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_0>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_1>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_2>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_0_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_1_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_2_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_0_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_0_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_1_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_2_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_1_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_0_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_2_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_2_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_1_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_2_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_2_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_2_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_0_2_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_2_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_0_2_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_0_2_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_0_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_0_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_1_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_0_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_2_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_0_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_0_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_0_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_1_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_1_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_1_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_2_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_1_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_1_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_0_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_2_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_2_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_2_0> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_1_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_2_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_2_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_2_1> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_2_cat>
+    a <#Connection> ;
+    <#connection_type> <#PointedItem> ;
+    <#source> <#objectMatrix_1_2_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_2_2> ;
+    <#text> ""^^xsd:string .
+
+<#point_to_objectMatrix_1_2_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#PointedField> ;
+    <#source> <#objectMatrix_1_2_2> ;
+    <#text> ""^^xsd:string .
+
+<#field_objectMatrix_0_0_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_0_0_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_0_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_0_0_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_0_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_0_1_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_0_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_0_1_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_0_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_0_2_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_0_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_0_2_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_1_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_1_0_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_1_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_1_0_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_1_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_1_1_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_1_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_1_1_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_1_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_1_2_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_1_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_1_2_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_2_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_2_0_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_2_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_2_0_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_2_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_2_1_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_2_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_2_1_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_0_2_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_2_2_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_0_2_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_0_2_2_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_0_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_0_0_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_0_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_0_0_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_0_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_0_1_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_0_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_0_1_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_0_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_0_2_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_0_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_0_2_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_1_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_1_0_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_1_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_1_0_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_1_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_1_1_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_1_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_1_1_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_1_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_1_2_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_1_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_1_2_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_2_0_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_2_0_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_2_0_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_2_0_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_2_1_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_2_1_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_2_1_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_2_1_cat> ;
+    <#text> "name"^^xsd:string .
+
+<#field_objectMatrix_1_2_2_catAge>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_2_2_cat> ;
+    <#text> "age"^^xsd:string .
+
+<#field_objectMatrix_1_2_2_catName>
+    a <#Connection> ;
+    <#connection_type> <#Field> ;
+    <#source> <#objectMatrix_1_2_2_cat> ;
+    <#text> ""^^xsd:string .
+
+<#variable_objectMatrix>
+    a <#Connection> ;
+    <#connection_type> <#Variable> ;
+    <#text> "objectMatrix"^^xsd:string .
+
+<#Class_Cat>
+    a <#Connection> ;
+    <#connection_type> <#ClassConnection> ;
+    <#text> "Cat"^^xsd:string .
+
+# -------- Входные данные --------------
+
+<#symbol>
+    a <#Element> ;
+    <#operator> <#arrow> ;
+    <#operand> <#item_name_objectMatrix> ;
+    <#var...> "symbol"^^xsd:string .
+
+# ------------------- Операнды
+
+<#integerOperand_0>
+    a <#Operand> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#text> "0"^^xsd:integer ;
+    <#linked_with> <#arrayDimension_0> ;
+    <#linked_with> <#arrayDimension_0_0> ;
+    <#linked_with> <#arrayDimension_1_0> ;
+    <#linked_with> <#arrayItem_0_0_0> ;
+    <#linked_with> <#arrayItem_0_1_0> ;
+    <#linked_with> <#arrayItem_0_2_0> ;
+    <#linked_with> <#arrayItem_1_0_0> ;
+    <#linked_with> <#arrayItem_1_1_0> ;
+    <#linked_with> <#arrayItem_1_2_0> ;
+    <#operand_id> "82"^^xsd:integer .
+
+<#integerOperand_1>
+    a <#Operand> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#text> "1"^^xsd:integer ;
+    <#linked_with> <#arrayDimension_1> ;
+    <#linked_with> <#arrayDimension_0_1> ;
+    <#linked_with> <#arrayDimension_1_1> ;
+    <#linked_with> <#arrayItem_0_0_1> ;
+    <#linked_with> <#arrayItem_0_1_1> ;
+    <#linked_with> <#arrayItem_0_2_1> ;
+    <#linked_with> <#arrayItem_1_0_1> ;
+    <#linked_with> <#arrayItem_1_1_1> ;
+    <#linked_with> <#arrayItem_1_2_1> ;
+    <#operand_id> "83"^^xsd:integer .
+
+<#integerOperand_2>
+    a <#Operand> ;
+    <#operand_type> <#IntegerOperand> ;
+    <#text> "2"^^xsd:integer ;
+    <#linked_with> <#arrayDimension_0_2> ;
+    <#linked_with> <#arrayDimension_1_2> ;
+    <#linked_with> <#arrayItem_0_0_2> ;
+    <#linked_with> <#arrayItem_0_1_2> ;
+    <#linked_with> <#arrayItem_0_2_2> ;
+    <#linked_with> <#arrayItem_1_0_2> ;
+    <#linked_with> <#arrayItem_1_1_2> ;
+    <#linked_with> <#arrayItem_1_2_2> ;
+    <#operand_id> "84"^^xsd:integer .
+
+<#item_name_name>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_0_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_1_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_2_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_0_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_1_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_2_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_0_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_1_catName> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_2_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_0_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_1_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_2_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_0_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_1_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_2_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_0_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_1_catName> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_2_catName> ;
+    <#linked_with> <#field_objectMatrix_0_0_0_catName> ;
+    <#linked_with> <#field_objectMatrix_0_0_1_catName> ;
+    <#linked_with> <#field_objectMatrix_0_0_2_catName> ;
+    <#linked_with> <#field_objectMatrix_0_1_0_catName> ;
+    <#linked_with> <#field_objectMatrix_0_1_1_catName> ;
+    <#linked_with> <#field_objectMatrix_0_1_2_catName> ;
+    <#linked_with> <#field_objectMatrix_0_2_0_catName> ;
+    <#linked_with> <#field_objectMatrix_0_2_1_catName> ;
+    <#linked_with> <#field_objectMatrix_0_2_2_catName> ;
+    <#linked_with> <#field_objectMatrix_1_0_0_catName> ;
+    <#linked_with> <#field_objectMatrix_1_0_1_catName> ;
+    <#linked_with> <#field_objectMatrix_1_0_2_catName> ;
+    <#linked_with> <#field_objectMatrix_1_1_0_catName> ;
+    <#linked_with> <#field_objectMatrix_1_1_1_catName> ;
+    <#linked_with> <#field_objectMatrix_1_1_2_catName> ;
+    <#linked_with> <#field_objectMatrix_1_2_0_catName> ;
+    <#linked_with> <#field_objectMatrix_1_2_1_catName> ;
+    <#linked_with> <#field_objectMatrix_1_2_2_catName> ;
+    <#text> "name"^^xsd:string ;
+    <#operand_id> "85"^^xsd:integer .
+
+<#item_name_age>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_0_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_1_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_0_2_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_0_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_1_2_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_0_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_1_catAge> ;
+    <#linked_with> <#point_to_objectMatrix_1_2_2_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_0_0_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_0_1_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_0_2_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_1_0_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_1_1_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_1_2_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_2_0_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_2_1_catAge> ;
+    <#linked_with> <#field_objectMatrix_0_2_2_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_0_0_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_0_1_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_0_2_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_1_0_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_1_1_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_1_2_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_2_0_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_2_1_catAge> ;
+    <#linked_with> <#field_objectMatrix_1_2_2_catAge> ;
+    <#text> "age"^^xsd:string ;
+    <#operand_id> "86"^^xsd:integer .
+
+<#item_name_objectMatrix>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#variable_objectMatrix> ;
+    <#text> "objectMatrix"^^xsd:string ;
+    <#operand_id> "87"^^xsd:integer .
+
+<#item_name_Cat>
+    a <#Operand> ;
+    <#operand_type> <#ItemName> ;
+    <#linked_with> <#Class_Cat> ;
+    <#text> "Cat"^^xsd:string ;
+    <#operand_id> "88"^^xsd:integer .

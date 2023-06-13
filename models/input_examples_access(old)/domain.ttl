@@ -1,0 +1,156 @@
+@base <http://www.vstu.ru/poas/code> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# --------- Классы ---------
+<#Item>
+    rdfs:subClassOf <#Operand> .
+
+<#ItemWithVisibleMemory>
+    rdfs:subClassOf <#Item> .
+
+<#Operand>
+    rdfs:subClassOf <#Token> .
+
+<#Operator>
+    rdfs:subClassOf <#Token> .
+
+<#Value>
+    rdfs:subClassOf <#ItemType> .
+
+<#Class>
+    a <#ItemType> .
+
+<#Pointer>
+    a <#ItemType> .
+
+<#ClassObject>
+    a <#ItemType> .
+
+<#Array> 
+    a <#ItemType> .
+
+<#Container>
+    a <#ItemType> .
+
+<#PointerToMember>
+    a <#ItemType> .
+
+<#IntegerValue>
+    a <#Value> ;
+    <#type> "int"^^xsd:string .
+
+<#FloatValue>
+    a <#Value> ;
+    <#type> "float"^^xsd:string .
+
+<#StringValue>
+    a <#Value> ;
+    <#type> "std::string"^^xsd:string .
+
+<#Field>
+    a <#ConnectionType> .
+
+<#PointedMember>
+    a <#ConnectionType> .
+
+<#PontedMemberByPointer>
+    a <#ConnectionType> .
+
+<#PointedItem>
+    a <#ConnectionType> .
+
+<#PointedField>
+    a <#ConnectionType> .
+
+<#StaticField>
+    a <#ConnectionType> .
+
+<#ArrayItem>
+    a <#ConnectionType> .
+
+<#ContainerItem>
+    a <#ConnectionType> .
+
+<#Dot>
+    a <#OperatorType> ;
+    <#text> "."^^xsd:string ;
+    <#associated_with> <#Field> ;
+	<#can_be_applied_to> <#ClassObject> .
+
+<#Arrow>
+    a <#OperatorType> ;
+    <#text> "->"^^xsd:string ;
+    <#associated_with> <#PointedField> ;
+    <#can_be_applied_to> <#Pointer> .
+
+<#DoubleColon>
+    a <#OperatorType> ;
+    <#text> "::"^^xsd:string ;
+    <#associated_with> <#StaticField> ;
+	<#can_be_applied_to> <#Class> .
+
+<#Asterisk>
+    a <#OperandType> ;
+    <#text> "*"^^xsd:string ;
+    <#associated_with> <#PointedItem> ;
+	<#can_be_applied_to> <#Pointer> ;
+    <#can_be_applied_to> <#Array> .
+
+<#SquareBrackets>
+    a <#OperandType> ;
+    <#associated_with> <#ArrayItem> ;
+    <#associated_with> <#ContainerItem> ;
+	<#can_be_applied_to> <#Array> ;
+    <#can_be_applied_to> <#Container> .
+
+<#ItemName>
+    a <#OperandType> ;
+    <#can_be_used_with> <#Dot> ;
+	<#can_be_used_with> <#Arrow> ;
+	<#can_be_used_with> <#DoubleColon> ;
+    <#compatible> <#compatible_itemName_arrow_pointer> ;
+    <#compatible> <#compatible_itemName_dot_objectItem> ;
+    <#compatible> <#compatible_itemName_doubleColon_class> .
+
+<#PointerOperand>
+    a <#OperandType> ;
+    <#can_be_used_with> <#Asterisk> ;
+    <#compatible> <#compatible_pointerOperand_asterisk_pointer> .
+
+<#IntegerOperand>
+    a <#OperandType> ;
+    <#can_be_used_with> <#SquareBrackets> ;
+    <#compatible> <#compatible_integerOperand_squareBrackets_array> .
+
+<#ItemOperand>
+    a <#OperandType> ;
+    <#can_be_used_with> <#SquareBrackets> ;
+    <#compatible> <#compatible_itemOperand_squareBrackets_container> .
+
+# ---- Тернарные связи -----
+
+<#compatible_itemName_arrow_pointer>
+    <#compatible> <#Arrow> ;
+    <#compatible> <#Pointer> .
+
+<#compatible_itemName_dot_objectItem>
+    <#compatible> <#Dot> ;
+    <#compatible> <#ClassObject> .
+
+<#compatible_itemName_doubleColon_class>
+    <#compatible> <#DoubleColon> ;
+    <#compatible> <#Class> .
+
+<#compatible_pointerOperand_asterisk_pointer>
+    <#compatible> <#Asterisk> ;
+    <#compatible> <#Pointer> .
+
+<#compatible_integerOperand_squareBrackets_array>
+    <#compatible> <#SquareBrackets> ;
+    <#compatible> <#Array> .
+
+<#compatible_compatible_itemOperand_squareBrackets_container>
+    <#compatible> <#SquareBrackets> ;
+    <#compatible> <#Container> .

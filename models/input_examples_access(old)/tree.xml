@@ -1,0 +1,275 @@
+<StartNode>
+    <InputVariables>
+        <DecisionTreeVarDecl name="currentItem" type="Item" />
+        <DecisionTreeVarDecl name="targetItem" type="Item" />
+        <DecisionTreeVarDecl name="symbol" type="Element" />
+    </InputVariables>
+    <ThoughtBranch type="bool" _alias="main">
+        <QuestionNode type="bool" _alias="main.currentNodeIsTargetNode">
+            <Expression>
+                <Compare operator="EQUAL">
+                    <DecisionTreeVar name="currentItem" />
+                    <DecisionTreeVar name="targetItem" />
+                </Compare>
+            </Expression>
+            <Outcome value="true">
+                <BranchResultNode value='false'
+                    _pattern='Вы уже достигли цели задачи, не надо идти дальше' />
+            </Outcome>
+            <Outcome value="false">
+                <QuestionNode type="bool" _alias="main.operatorCanBeUsed">
+                    <Expression>
+                        <CheckRelationship>
+                            <Relationship name="can_be_applied_to" />
+                            <GetByRelationship varName="_">
+                                <GetByRelationship varName="_">
+                                    <DecisionTreeVar name="symbol" />
+                                    <Relationship name="operator" />
+                                </GetByRelationship>
+                                <Relationship name="operand_type" />
+                            </GetByRelationship>
+                            <GetByRelationship varName="_">
+                                <DecisionTreeVar name="currentItem" />
+                                <Relationship name="item_type" />
+                            </GetByRelationship>
+                        </CheckRelationship>
+                    </Expression>
+                    <Outcome value="false">
+                        <BranchResultNode value='false'
+                            _pattern='К {currentItem->item_type->text_dat_p} нельзя применить оператор {symbol->operator->operator_type->text}, так как {symbol->operator->operator_type->text} может применяться только к {symbol->operator->operator_type->can_be_applied_to->text_dat_p}' />
+                    </Outcome>
+                    <Outcome value="true">
+                        <!-- <QuestionNode type="bool"
+                        _alias="main.symbolsOperandCanBeUsedWithOperator">
+                            <Expression>
+                                <CheckRelationship>
+                                    <Relationship name="can_be_used_with" />
+                                    <GetByRelationship varName="_">
+                                        <GetByRelationship varName="_">
+                                            <DecisionTreeVar name="symbol" />
+                                            <Relationship name="operand" />
+                                        </GetByRelationship>
+                                        <Relationship name="operand_type" />
+                                    </GetByRelationship>
+                                    <GetByRelationship varName="_">
+                                        <GetByRelationship varName="_">
+                                            <DecisionTreeVar name="symbol" />
+                                            <Relationship name="operator" />
+                                        </GetByRelationship>
+                                        <Relationship name="operator_type" />
+                                    </GetByRelationship>
+                                </CheckRelationship>
+                            </Expression>
+                            <Outcome value="false">
+                                <BranchResultNode value='false' 
+                                _pattern='К {currentItem->item_type->text_dat_p} нельзя применить оператор
+                        {symbol->operator->operator_type->text} с операндом типа
+                        {symbol->operand->operand_type->text_im_p}, так как у
+                        {currentItem->item_type->text_rod_p} отсутствует перегрузка для этого' />
+                            </Outcome>
+                            <Outcome value="true"> -->
+                        <QuestionNode type="bool"
+                            _alias="main.symbolsOperandCompatibleWithCurrentItem">
+                            <Expression>
+                                <CheckRelationship>
+                                    <Relationship name="compatible" />
+                                    <GetByRelationship varName="_">
+                                        <GetByRelationship varName="__">
+                                            <DecisionTreeVar name="symbol" />
+                                            <Relationship name="operand" />
+                                        </GetByRelationship>
+                                        <Relationship name="operand_type" />
+                                    </GetByRelationship>
+                                    <GetByRelationship varName="_">
+                                        <GetByRelationship varName="__">
+                                            <DecisionTreeVar name="symbol" />
+                                            <Relationship name="operator" />
+                                        </GetByRelationship>
+                                        <Relationship name="operator_type" />
+                                    </GetByRelationship>
+                                    <GetByRelationship varName="_">
+                                        <DecisionTreeVar name="currentItem" />
+                                        <Relationship name="item_type" />
+                                    </GetByRelationship>
+                                </CheckRelationship>
+                            </Expression>
+                            <Outcome value="false">
+                                <BranchResultNode value='false'
+                                    _pattern='К {currentItem->item_type->text_dat_p} нельзя применить оператор {symbol->operator->operator_type->text} с операндом типа {symbol->operand->operand_type->text_im_p}, так как у {currentItem->item_type->text_rod_p} отсутствует перегрузка для этого' />
+                            </Outcome>
+                            <Outcome value="true">
+                                <QuestionNode type="bool"
+                                    _alias="main.symbolsOperandCanBeUsedToGetAccess">
+                                    <Expression>
+                                        <ExistenceQuantifier varName="item">
+                                            <ExistenceQuantifier varName="connection">
+                                                <CheckRelationship>
+                                                    <Relationship name="is_a" />
+                                                    <Variable name="item" />
+                                                    <Variable name="connection" />
+                                                </CheckRelationship>
+                                                <LogicalAnd>
+                                                    <CheckRelationship>
+                                                        <Relationship name="has" />
+                                                        <DecisionTreeVar name="currentItem" />
+                                                        <Variable name="connection" />
+                                                    </CheckRelationship>
+                                                    <CheckRelationship>
+                                                        <Relationship name="associated_with" />
+                                                        <GetByRelationship varName="_">
+                                                            <GetByRelationship varName="__">
+                                                                <DecisionTreeVar
+                                                                    name="symbol" />
+                                                                <Relationship
+                                                                    name="operator" />
+                                                            </GetByRelationship>
+                                                            <Relationship
+                                                                name="operator_type" />
+                                                        </GetByRelationship>
+                                                        <GetByRelationship varName="_">
+                                                            <Variable name="connection" />
+                                                            <Relationship
+                                                                name="connection_type" />
+                                                        </GetByRelationship>
+                                                    </CheckRelationship>
+                                                </LogicalAnd>
+                                            </ExistenceQuantifier>
+                                            <CheckRelationship>
+                                                <Relationship name="reachable_from" />
+                                                <DecisionTreeVar name="targetItem" />
+                                                <Variable name="item" />
+                                            </CheckRelationship>
+                                        </ExistenceQuantifier>
+                                    </Expression>
+                                    <Outcome value="false">
+                                        <BranchResultNode value='false'
+                                            _pattern='При применении {symbol->operator->operator_type->text} к текущему {currentItem->item_type->text_dat_p} невозможно построить выражение, ведущее к цели задачи' />
+                                    </Outcome>
+                                    <Outcome value="true">
+                                        <FindActionNode
+                                            _alias="main.findNextItem">
+                                            <DecisionTreeVarDecl name="nextItem" type="Item" />
+                                            <Expression>
+                                                <GetByCondition varName="item">
+                                                    <ExistenceQuantifier
+                                                        varName="connection">
+                                                        <CheckRelationship>
+                                                            <Relationship name="is_a" />
+                                                            <Variable name="item" />
+                                                            <Variable name="connection" />
+                                                        </CheckRelationship>
+                                                        <LogicalAnd>
+                                                            <LogicalAnd>
+                                                                <CheckRelationship>
+                                                                    <Relationship name="has" />
+                                                                    <DecisionTreeVar
+                                                                        name="currentItem" />
+                                                                    <Variable
+                                                                        name="connection" />
+                                                                </CheckRelationship>
+                                                                <CheckRelationship>
+                                                                    <Relationship
+                                                                        name="associated_with" />
+                                                                    <GetByRelationship
+                                                                        varName="_">
+                                                                        <GetByRelationship
+                                                                            varName="__">
+                                                                            <DecisionTreeVar
+                                                                                name="symbol" />
+                                                                            <Relationship
+                                                                                name="operator" />
+                                                                        </GetByRelationship>
+                                                                        <Relationship
+                                                                            name="operator_type" />
+                                                                    </GetByRelationship>
+                                                                    <GetByRelationship
+                                                                        varName="_">
+                                                                        <Variable
+                                                                            name="connection" />
+                                                                        <Relationship
+                                                                            name="connection_type" />
+                                                                    </GetByRelationship>
+                                                                </CheckRelationship>
+                                                            </LogicalAnd>
+                                                            <CheckRelationship>
+                                                                <Relationship
+                                                                    name="linked_with" />
+                                                                <GetByRelationship
+                                                                    varName="_">
+                                                                    <DecisionTreeVar
+                                                                        name="symbol" />
+                                                                    <Relationship
+                                                                        name="operand" />
+                                                                </GetByRelationship>
+                                                                <Variable name="connection" />
+                                                            </CheckRelationship>
+                                                        </LogicalAnd>
+                                                    </ExistenceQuantifier>
+                                                </GetByCondition>
+                                            </Expression>
+                                            <Outcome value="none">
+                                                <BranchResultNode value='false'
+                                                    _pattern='??При применении {symbol->operator->operator_type->text}{symbol->operand->text} к текущему {currentItem->itemType->text_dat_p} невозможно построить выражение, ведущее к цели задачи' />
+                                            </Outcome>
+                                            <Outcome value="found">
+                                                <QuestionNode type="bool"
+                                                    _alias="main.targetItemReachableFromNextItem">
+                                                    <Expression>
+                                                        <CheckRelationship>
+                                                            <Relationship
+                                                                name="reachable_from" />
+                                                            <DecisionTreeVar
+                                                                name="targetItem" />
+                                                            <DecisionTreeVar name="nextItem" />
+                                                        </CheckRelationship>
+                                                    </Expression>
+                                                    <Outcome value="false">
+                                                        <BranchResultNode value='false'
+                                                            _pattern='Из выбранного {nextItem->primary_is_a->item_type->text_rod_p} невозможно построить выражение, ведущее к цели задачи' />
+                                                    </Outcome>
+                                                    <Outcome value="true">
+                                                        <QuestionNode type="bool"
+                                                            _alias="main.nextItemWasVisitedBefore">
+                                                            <Expression>
+                                                                <GetPropertyValue>
+                                                                    <DecisionTreeVar
+                                                                        name="nextItem" />
+                                                                    <Property
+                                                                        name="was_visited_before" />
+                                                                </GetPropertyValue>
+                                                            </Expression>
+                                                            <Outcome value="true">
+                                                                <BranchResultNode
+                                                                    value='false'
+                                                                    _pattern='Вы уже посещали выбранный {nextItem->primary_is_a->item_type->text_rod_p} ранее' />
+                                                            </Outcome>
+                                                            <Outcome value="false">
+                                                                <BranchResultNode
+                                                                    value='true'>
+                                                                    <Expression>
+                                                                        <AssignToDecisionTreeVar>
+                                                                            <DecisionTreeVar
+                                                                                name="currentItem" />
+                                                                            <DecisionTreeVar
+                                                                                name="nextItem" />
+                                                                        </AssignToDecisionTreeVar>
+                                                                    </Expression>
+                                                                </BranchResultNode>
+                                                            </Outcome>
+                                                        </QuestionNode>
+                                                    </Outcome>
+                                                </QuestionNode>
+                                            </Outcome>
+                                        </FindActionNode>
+                                    </Outcome>
+                                </QuestionNode>
+                            </Outcome>
+                        </QuestionNode>
+                        <!-- </Outcome>
+                        </QuestionNode> -->
+                    </Outcome>
+                </QuestionNode>
+            </Outcome>
+        </QuestionNode>
+    </ThoughtBranch>
+</StartNode>
